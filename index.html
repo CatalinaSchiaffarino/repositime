@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGU Derecho</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modal */
+       /* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+}
+
+       /* Contenido del modal */
+.modal-content {
+    background-color: rgb(183, 216, 243); /* Fondo amarillo con opacidad */
+    color: black; /* Cambia el color del texto para mejorar la legibilidad */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid  rgb(0, 51, 160);
+    width: 80%;
+    text-align: center;
+    border-radius: 10px; /* Bordes redondeados opcional */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Sombra opcional */
+}
+
+        
+        .modal-content .heading, .modal-content .subheading {
+            background-color: rgba(0, 51, 160, 0.89); /* Fondo azul CGU con transparencia */
+            color: white;
+            padding: 15px;
+            border-radius: 5px; /* Bordes redondeados opcional */
+            font-weight: bold; /* Texto en negrita */
+        }
+        
+        .modal-content .heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .modal-content .subheading {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .close, .seguir {
+            background-color: #ffffff; 
+            color: #0033a0; /* Color azul oscuro */
+            padding: 15px 30px; 
+            margin: 10px 0; 
+            border: none; 
+            cursor: pointer;
+            border-radius: 5px; /* Bordes redondeados opcional */
+            font-weight: bold; /* Texto en negrita */
+        }
+        
+        .close:hover, .seguir:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Estilos generales para las secciones */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        /* Imagen en la sección estudiantes */
+        .titulo-imagen img {
+            width: 100%; /* Ajuste al 100% del contenedor */
+            height: auto;
+            border-radius: 8px; /* Bordes redondeados opcional */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+        }
+        
+        .texto {
+            margin-top: 20px;
+            text-align: center; /* Centra el texto */
+        }
+        
+        /* Imagen y texto en la sección de proyectos liceo */
+        .proyecto-imagen {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .proyecto-imagen img {
+            width: 40%; /* Ajusta el tamaño de la imagen */
+            height: auto;
+            border-radius: 8px; /* Bordes redondeados opcional */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+        }
+        
+        .proyecto-imagen .caption {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 51, 160, 0.7); /* Fondo azul transparente */
+            color: white;
+            padding: 10px;
+            border-radius: 5px; /* Bordes redondeados opcional */
+            font-weight: bold; /* Texto en negrita */
+            font-size: 1.1em; /* Tamaño del texto */
+        }
+        
+        .proyecto-imagen p {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Estilos para la sección de contacto */
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-options .email-contact, .contact-options .whatsapp-contact {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .contact-options h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-options form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-options textarea {
+            margin-bottom: 10px;
+        }
+
+        .contact-options input[type="submit"] {
+            background-color: #0033a0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contact-options input[type="submit"]:hover {
+            background-color: rgba(0, 51, 160, 0.7);
+        }
+
+        /* Estilos para los iconos sociales en el footer */
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            color: #ffffff;
+            font-size: 2em;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="heading">
+                ¡SEGUINOS EN NUESTRAS REDES SOCIALES!
+            </div>
+            <div class="subheading">
+                SI ESTÁS CURSANDO UNA CARRERA EN LA FACULTAD DE DERECHO, SEGUINOS EN NUESTRAS REDES SOCIALES PARA ENTERARTE DE TODAS LAS NOVEDADES AL INSTANTE
+            </div>
+            <button class="seguir" onclick="window.location.href='https://www.instagram.com/cguderecho/?hl=es'">Ir a redes</button>
+            <button class="close" onclick="closeModal()">Tal vez mas tarde</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="images\xddd.png" alt="CGU Derecho"> <!--logo muy grande en px, minimizar cantidad de tamaño por medio de css por ejemplo o con algun achicador en la web-->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('estudiantes')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('noticias')">Noticias</a></li>
+                <li><a href="#" onclick="showSection('preguntas')">Preguntas frecuentes</a></li>
+                <li><a href="#" onclick="showSection('tutoriales')">Tutoriales</a></li>
+                <li><a href="#" onclick="showSection('quienes-somos')">¿Quiénes Somos?</a></li>
+                <li><a href="#" onclick="showSection('contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="estudiantes">
+            <div class="container">
+                <div class="titulo-imagen">
+                    <img src="images/uwu.jpg" alt="CGU en los 40 años" class="imagen">
+                </div>
+                <div class="texto">
+                    <h2>CONSTRUYENDO UNIVERSIDAD DESDE 1983; POR UNA UNIVERSIDAD MÁS PARTICIPATIVA, MÁS NACIONAL Y MÁS POPULAR</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="noticias">
+            <div class="container">
+                <h2>Noticias Recientes</h2>
+                <div class="noticia">
+                    <h3>Título de la Noticia 1</h3>
+                    <p>Descripción breve de la noticia.</p>
+                </div>
+                <div class="noticia">
+                    <h3>Título de la Noticia 2</h3>
+                    <p>Descripción breve de la noticia.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="preguntas">
+            <div class="container">
+                <h2>Preguntas Frecuentes</h2>
+                <ul>
+                    <li>
+                        <button class="faq-button">¿Cómo accedo al calendario de inscripciones a cursos?</button>
+                        <div class="faq-answer">El calendario de inscripciones se publica en la sección Cursos de la web de la Facultad. Ver calendarios en: Bedelía/Cursos/Calendario.</div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Dónde veo los horarios y códigos para inscribirme a los cursos?</button>
+                        <div class="faq-answer">Sección Cursos publica en la web de Facultad, la grilla de cursos con los distintos horarios, de cada unidad curricular de las distintas carreras. Ver grilla de cursos en: Bedelía/Cursos/Grilla.</div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo me inscribo a un curso?</button>
+                        <div class="faq-answer">
+                            En cada semestre el estudiante debe consultar las pautas aprobadas para realizar la inscripción a los cursos, publicadas con los calendarios de inscripciones. El estudiante debe consultar la grilla de cursos publicada en: Bedelía/Cursos/Grilla. 
+                            <br><br>
+                            Ingresa al portal del estudiante <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy</a> - Autogestión estudiantil - Menú - Inscripciones (se inscribe al curso que haya elegido de acuerdo a la grilla consultada anteriormente.)
+                            <br><br>
+                            Importante: Si la inscripción fue realizada correctamente el sistema le devolverá un número de control, el cuál debe conservar para cualquier reclamo referente a la misma.
+                            <br><br>
+                            Una vez finalizado cada período de inscripción, el estudiante deberá consultar en <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy</a> - Autogestión estudiantil - Menú - Inscripciones - consulta de inscripciones para confirmar si tiene un curso asignado en el sorteo.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Dónde veo el curso y horario en que estoy inscripto?</button>
+                        <div class="faq-answer">
+                            Ingresa al portal del estudiante <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy/</a> - Autogestión estudiantil - Menú - Consulta de inscripciones - NO CONTROL DE INSCRIPCIONES.
+                            <br><br>
+                            Si por error se inscribió a un código horario equivocado, mientras que el período de inscripciones esté habilitado, puede modificar tantas veces como considere su inscripción o darse de baja de la misma. Una vez finalizado el período no podrá hacer cambios, al igual que una vez que haya sido sorteado en algún grupo.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo y cuándo me matriculo en la Plataforma EVA para cursar?</button>
+                        <div class="faq-answer">
+                            Una vez inscripto a la unidad curricular a través de <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy/</a>, el estudiante debe matricularse en la plataforma EVA: <a href="https://eva.fder.udelar.edu.uy">https://eva.fder.udelar.edu.uy</a>.
+                            <br><br>
+                            Todos los estudiantes para matricularse a los cursos en la plataforma EVA deben utilizar el mismo usuario y contraseña con que entran en la web de Bedelía.
+                            <br><br>
+                            Importante: El estudiante debe matricularse en el mismo código horario que se encuentra inscripto. Quien se matricule en un curso incorrecto no figurará en el acta final del curso y no podrá ser evaluado por el docente.
+                            <br><br>
+                            Atención: Al momento de matricularse al espacio del curso en EVA, el estudiante que se encuentre en la lista del curso debe utilizar la clave indicada para "Estudiantes inscriptos en la lista de Bedelía". El estudiante que no se encuentre en la lista del curso debe utilizar la clave indicada en "Estudiantes fuera de lista".
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <button class="faq-button">Si no me encuentro en la lista del curso, ¿qué debo hacer?</button>
+                        <div class="faq-answer">
+                            Verificar la lista en su totalidad, publicada en la plataforma EVA, ya que el orden alfabético puede variar debido a los distintos caracteres informáticos (ej: tildes, ñ, ¨).
+                            <br><br>
+                            El estudiante que no figure en la lista del curso al que está asistiendo debe:
+                            <ul>
+                                <li>Verificar en Menú/Consulta de inscripciones <a href="https://bedelias.udelar.edu.uy/">https://bedelias.udelar.edu.uy/</a> el código horario en el que figura inscripto.</li>
+                                <li>Verificar en la plataforma EVA si se matriculó al mismo código horario.</li>
+                                <li>Si no coincide el código horario de inscripción con el mismo en que se matriculó en la plataforma EVA, debe matricularse en el correcto y avisar al docente correspondiente la situación.</li>
+                                <li>Si coincide el código horario de inscripción con el mismo en que se matriculó en la plataforma EVA, verificó la totalidad de la lista y aún así sigue sin figurar en la lista, puede consultar en Sección Cursos en forma telefónica o presencial según los horarios publicados.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Para retomar la carrera, qué debo hacer y a qué materias me tengo que inscribir?</button>
+                        <div class="faq-answer">
+                            El estudiante que desee retomar la carrera debe inscribirse a los cursos y no a la carrera nuevamente.
+                            <br><br>
+                            Para inscribirse a los cursos debe tener código de usuario activo (<a href="https://www.fder.edu.uy/node/5476">https://www.fder.edu.uy/node/5476</a>) y no tener sanciones (<a href="https://bedelias.udelar.edu.uy/">https://bedelias.udelar.edu.uy/</a> Menú/Consultar sanciones).
+                            <br><br>
+                            Verificar en su escolaridad a través de <a href="https://bedelias.udelar.edu.uy/">https://bedelias.udelar.edu.uy/</a> Menú/Escolaridades las unidades curriculares pendientes de aprobación.
+                            <br><br>
+                            Consultar la grilla de cursos publicada y el calendario de inscripciones <a href="https://www.fder.edu.uy/ver_cursos">https://www.fder.edu.uy/ver_cursos</a>
+                            <br><br>
+                            Inscribirse <a href="https://www.fder.edu.uy/node/3660">https://www.fder.edu.uy/node/3660</a>
+                            <br><br>
+                            Si al inscribirse le figura que tiene una sanción, el estudiante debe ingresar al portal del estudiante <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy/</a> y seleccionar formularios estadísticos. Se sugiere llenar todos los formularios estadísticos pendientes. La habilitación es inmediata al concluir el llenado de los formularios.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">Pertenezco al plan 89 de Abogacía / Notariado y quiero cursar unidades curriculares que ya no se dictan por mi plan, ¿qué debo hacer?</button>
+                        <div class="faq-answer">
+                            Los estudiantes que pertenecen al plan 89 y quieren cursar unidades curriculares que se dictan por el nuevo plan 2016, deben inscribirse a los cursos equivalentes 89x2016.
+                            <br><br>
+                            Previo a la inscripción deberá consultar la tabla de equivalencias para saber cuáles son las UC que equivalen a las UC faltantes de aprobación por su plan.
+                            <br><br>
+                            Los estudiantes cursan según la modalidad y reglamentos del plan 2016, pero se rigen por el régimen de previaturas del plan 89.
+                            <br><br>
+                            Cuando la nota me figura en escolaridad, ver: <a href="https://www.fder.edu.uy/node/5528">https://www.fder.edu.uy/node/5528</a>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Pertenezco a un plan anterior, qué debo hacer para cursar lo que me falta?</button>
+                        <div class="faq-answer">
+                            Estudiantes de la carrera:
+                            <ul>
+                                <li>Licenciatura en Relaciones Internacionales plan 86 consultar calendario de inscripciones 86x2013 <a href="https://www.fder.edu.uy/ver_cursos">https://www.fder.edu.uy/ver_cursos</a></li>
+                                <li>Abogacía – Notariado plan 89 consultar calendario de inscripciones 89x2016 <a href="https://www.fder.edu.uy/ver_cursos">https://www.fder.edu.uy/ver_cursos</a></li>
+                                <li>Abogacía – Notariado planes anteriores al plan 89 consultar calendario de inscripciones 89x2016 <a href="https://www.fder.edu.uy/ver_cursos">https://www.fder.edu.uy/ver_cursos</a></li>
+                                <li>Tecnicatura en Relaciones Laborales únicamente se rinden por examen. Enviar consultas a <a href="mailto:examenes@fder.edu.uy">examenes@fder.edu.uy</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo hago para desistir (darse de baja) de un curso?</button>
+                        <div class="faq-answer">
+                            El estudiante puede desistir del curso:
+                            <ul>
+                                <li>Mientras el período de inscripción se encuentra habilitado, el estudiante puede dar de baja a la inscripción.</li>
+                                <li>Cuando se habilita el período de desistimiento. Ver calendario publicado en <a href="https://www.fder.edu.uy/ver_cursos">https://www.fder.edu.uy/ver_cursos</a></li>
+                                <li>Una vez comenzado el curso, el estudiante puede desistir del mismo antes de realizado el segundo parcial, comunicándole su voluntad al docente a cargo del grupo. Resolución 44 del Consejo de Facultad. <a href="https://www.fder.edu.uy/index.php/node/3410">https://www.fder.edu.uy/index.php/node/3410</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">Si quiero cambiarme de Plan, ¿cómo hago?</button>
+                        <div class="faq-answer">
+                            El estudiante debe enviar por el correo: <a href="mailto:estudiantes.cursos@fder.edu.uy">estudiantes.cursos@fder.edu.uy</a> durante el período habilitado (ver en: <a href="https://www.fder.edu.uy/bedelia/cursos/comunicados">https://www.fder.edu.uy/bedelia/cursos/comunicados</a>) el formulario de cambio de plan correspondiente a su carrera (<a href="https://www.fder.edu.uy/index.php/bedeliaseccionesyservicios">https://www.fder.edu.uy/index.php/bedeliaseccionesyservicios</a>).
+                            <br><br>
+                            El estudiante puede solicitar cambio de plan siempre que todas las actas de las unidades curriculares en que se encuentra inscripto, hayan sido entregadas en Bedelía y procesadas.
+                            <br><br>
+                            Importante: Una vez firmado y enviado un cambio de plan, es definitivo.
+                            <br><br>
+                            Sugerimos al estudiante que se informe de los planes de estudios, equivalencias, reválidas, etc. antes de tomar la decisión.
+                            <br><br>
+                            <a href="https://www.fder.edu.uy/node/53">https://www.fder.edu.uy/node/53</a>
+                            <br>
+                            <a href="https://www.fder.edu.uy/node/1929">https://www.fder.edu.uy/node/1929</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <button class="faq-button">No me figura una materia aprobada en la escolaridad, ¿cuál es el procedimiento para realizar el reclamo?</button>
+                        <div class="faq-answer">
+                            Previo a realizar el reclamo, el estudiante debe verificar que la unidad curricular aprobada no haya sido pasada a la escolaridad.
+                            <br><br>
+                            Ver en el siguiente link el período de reclamos habilitado y enviar el formulario correspondiente a notas faltantes en escolaridad: <a href="https://www.fder.edu.uy/bedelia/cursos/comunicados">https://www.fder.edu.uy/bedelia/cursos/comunicados</a>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">Cursé y aprobé una opcional y me figura en un año que no quiero, ¿Qué debo hacer?</button>
+                        <div class="faq-answer">
+                            Ver período habilitado para cambio de Opcional y enviar formulario correspondiente. Se solicita verificar año de aprobación de la misma según se indica en: <a href="https://www.fder.edu.uy/bedelia/cursos/comunicados">https://www.fder.edu.uy/bedelia/cursos/comunicados</a>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Tengo derecho a boletos?</button>
+                        <div class="faq-answer">
+                            Información general:
+                            <br><br>
+                            La UdelaR envía la lista de estudiantes habilitados a la Intendencia de Montevideo.
+                            <br><br>
+                            Tienen derecho a sacar boletos:
+                            <ul>
+                                <li>Estudiantes de grado o de intercambio estudiantil que cumplan alguna de estas condiciones:</li>
+                                <ul>
+                                    <li>Sean estudiantes de la generación de ingreso en el año.</li>
+                                    <li>Los estudiantes activos (con cursos aprobados y/o examen rendido 2 años atrás a la fecha) y que tengan además algún curso, examen o inscripción en el año actual o anterior.</li>
+                                </ul>
+                            </ul>
+                            <br>
+                            No tienen derecho a boletos:
+                            <ul>
+                                <li>Estudiantes suspendidos: Aquellos estudiantes que por alguna causa tengan la suspensión abierta (ej: suspendido por formulario estadístico, censo universitario, etc) (excepto suspensión por Biblioteca) y los estudiantes condicionados por Cortesía Diplomática.</li>
+                                <li>Estudiantes que abandonaron y retoman sus estudios: Son estudiantes de generaciones anteriores con situación pasiva, por lo tanto no cumplen con el criterio. No alcanza con estar nuevamente inscriptos a los cursos y exámenes para pasar a ser activos y obtener derecho a boletos.</li>
+                                <li>Egresados de una carrera: Los egresados dejan de ser activos, por lo tanto no pueden sacar boletos.</li>
+                            </ul>
+                            <br>
+                            <a href="http://www.bedelia.fmed.edu.uy/boletos.html">http://www.bedelia.fmed.edu.uy/boletos.html</a>
+                            <br>
+                            Consulta de habilitados: <a href="https://estudiantes.udelar.edu.uy">https://estudiantes.udelar.edu.uy</a>
+                            <br><br>
+                            Aquellos estudiantes que se encuentren inscriptos en más de un centro de enseñanza, le corresponderá "Boleto de estudiante" en la categoría de menor beneficio.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">Constancias de pruebas de parciales rendidos ¿dónde la solicito?</button>
+                        <div class="faq-answer">
+                            Opción 1: Estudiantes que rinden parciales modalidad a distancia
+                            <br>
+                            Las constancias para parciales rendidos en modalidad a distancia están disponibles para el acceso de todos los docentes en la plataforma EVA - Cursos Fder - Documentos Administrativos. El docente la descarga, la completa y envía a los estudiantes que se la solicitan o al mail que estos le soliciten.
+                            <br><br>
+                            Opción 2: Estudiantes que rinden parciales modalidad presencial
+                            <br>
+                            Las constancias están disponibles en Bedelía - Sección Cursos, firmadas y selladas para que cada docente, ayudante o asistente las retire antes del parcial o durante el mismo. Atención Docente: de lunes a viernes de 9 a 17hs
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo me entero de los cambios en los cursos?</button>
+                        <div class="faq-answer">
+                            El Departamento de Administración de la Enseñanza, Sección Cursos, Exámenes y Títulos y Certificados, utiliza como medio de comunicación la web de facultad: <a href="https://www.fder.edu.uy">https://www.fder.edu.uy</a>
+                            <br><br>
+                            Todos los cambios referentes a cursos, inscripciones, resoluciones o novedades en general se encuentran en: <a href="https://www.fder.edu.uy/bedelia/cursos/comunicados">https://www.fder.edu.uy/bedelia/cursos/comunicados</a>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo obtengo mi escolaridad?</button>
+                        <div class="faq-answer">
+                            <a href="https://www.fder.edu.uy/titulos">https://www.fder.edu.uy/titulos</a>
+                            <br><br>
+                            Las escolaridades pueden ser impresas por los estudiantes y egresados ingresando al Portal del Estudiante > Autogestión Estudiantil > Menú > Escolaridades.
+                            <br><br>
+                            Si el egresado no tiene código de activación, hace la Solicitud de código de activación. Le llegará el código por mail.
+                            <br><br>
+                            Código de Verificación: Desde el 3/10/2017, las escolaridades solicitadas desde la Autogestión Estudiantil contienen un código de verificación y un link de acceso que permiten verificar la autenticidad del documento.
+                            <br><br>
+                            Las verificaciones por terceros se podrán realizar siempre que el estudiante haya habilitado la opción "Sí" en Opciones personales del menú Datos Personales.
+                            <br><br>
+                            Procedimiento para validar la escolaridad: Aclaración pertinente: Las escolaridades verificables podrán ser presentadas en organismos públicos o privados sin la necesidad del sello de la institución.
+                            <br>
+                            Resolución del Consejo Delegado de Gestión Administrativa y Presupuestal de fecha 2 de Octubre de 2017
+                            <br>
+                            <a href="https://yoestudioen.udelar.edu.uy">https://yoestudioen.udelar.edu.uy</a> (Autogestión Estudiantil > Menú > Escolaridades)
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo obtener o activar clave de estudiante?</button>
+                        <div class="faq-answer">
+                            Los estudiantes deberán solicitar su código de activación <a href="https://www.fder.edu.uy/node/5476">aquí</a>.
+                            <br><br>
+                            Advertimos que se han detectado problemas con direcciones de correos electrónicos como hotmail, outlook, live o que en su dirección tengan puntos o guiones, a la hora de recibir respuestas automáticas por parte de la extensión Fder. Quizás sea conveniente el cambio de correo electrónico en estos casos.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo pido una certificación médica?</button>
+                        <div class="faq-answer">
+                            <a href="https://www.fder.edu.uy/node/6114">https://www.fder.edu.uy/node/6114</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <button class="faq-button">¿Cómo solicito mi Título?</button>
+                        <div class="faq-answer">
+                            Complete el Formulario de Solicitud de Título.
+                            <br>
+                            Adjunte documentación para solicitud de título.
+                            <br><br>
+                            <a href="https://www.fder.edu.uy/node/12345">Instructivo para la Solicitud de Títulos</a>
+                            <br>
+                            <a href="https://www.fder.edu.uy/node/12346">Etapas que sigue su Solicitud de Título hasta su entrega final</a>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Cómo continúa mi trámite luego de que lo solicite?</button>
+                        <div class="faq-answer">
+                            Respetando la correlación de números, se procede a:
+                            <ul>
+                                <li>Controlar las actividades aprobadas en las Actas Originales materia por materia.</li>
+                                <li>Actualizar los datos filiatorios.</li>
+                                <li>Control de previas.</li>
+                                <li>Registrar el egreso en el SGAE.</li>
+                                <li>Enviar a Bedelía General una escolaridad de egreso.</li>
+                                <li>Bedelía General habilita el seguimiento de título.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿En qué etapa está mi Título?</button>
+                        <div class="faq-answer">
+                            Consultar en <a href="https://www.fder.edu.uy/node/12347">Seguimiento de mi Título</a>.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Si no me encuentro en Seguimiento de Título?</button>
+                        <div class="faq-answer">
+                            Consultar en "Controlados" en esta página...
+                            <br>
+                            Puede ser que no se haya realizado el control del mismo todavía.
+                            <br>
+                            Puede estar detenido, en dicho caso Bedelía se contactará con usted.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿En caso de extravío o robo de mi Título, cómo hago para tramitar un duplicado?</button>
+                        <div class="faq-answer">
+                            Consultar en: <a href="https://www.fder.edu.uy/node/12348">Ordenanza Sobre Firma de Títulos Universitarios, Expedición de Certificados y Duplicados de Títulos</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <button class="faq-button">¿Si no asisto a un examen hay sanción?</button>
+                        <div class="faq-answer">
+                            No hay sanción por no asistir a un examen.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-button">¿Dónde puedo fijarme las previas?</button>
+                        <div class="faq-answer">
+                            En <a href="https://www.fder.edu.uy/node/1606">https://www.fder.edu.uy/node/1606</a>.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+
+        <section id="tutoriales">
+            <div class="container">
+                <h1> ¿Como me inscribo a las materias?</h1>
+                <video src="video/vi.mp4" controls></video> <!--En html las rutas \ algunas veces no cargan tan piola JAJAJAJ  ya casi rompo todo, como se pone entonces?--> 
+<br>
+<h1> ¿Como me matriculo en Eva?</h1>
+                <video src="video\a.mp4" controls></video>           
+            </div>
+        </section>
+        
+
+        <section id="quienes-somos">
+            <div class="container">
+                <h2>¿Quiénes Somos?</h2>
+                <p>La Corriente Gremial Universitaria (CGU) en la Facultad de Derecho de la Universidad de la República de Uruguay se fundó en 1983 como respuesta al contexto de movimientos estudiantiles que buscaban fortalecer la democracia y los valores fundamentales de la educación universitaria. Desde entonces, CGU Derecho se ha consolidado como un espacio emblemático de participación estudiantil, caracterizado por su defensa ferviente de la autonomía universitaria, el cogobierno, la gratuidad y la laicidad, principios esenciales consagrados en la Ley Orgánica de la Universidad.
+
+                    En CGU Derecho, convergen estudiantes de diversas corrientes políticas y sociales, lo que enriquece un ambiente de debate constructivo y pluralidad de ideas. Esta diversidad interna permite abordar los desafíos educativos y sociales desde perspectivas variadas, siempre orientadas hacia el bienestar y el progreso de todos los estudiantes.>  </div>
+        </section>
+
+        <section id="contacto">
+            <div class="container">
+                <h2>Contacto</h2>
+                <p>Si deseas ponerte en contacto con nosotros, puedes enviarnos un correo electrónico o un mensaje por WhatsApp.</p>
+                <div class="contact-options">
+                    <div class="email-contact">
+                        <h3>Enviar un correo electrónico</h3>
+                        <a href="mailto:cguderecho2021@gmail.com" class="contact-button">
+                            <button>Enviar correo</button> 
+                        </a>
+                    </div> 
+                    <div class="whatsapp-contact">
+                        <h3>Enviar un mensaje por WhatsApp</h3>
+                        <a href="https://w.app/CGU" target="_blank" class="contact-button">
+                            <button>Enviar WhatsApp</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://www.instagram.com/cguderecho/?hl=es" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://w.app/CGU" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:catalinaschiaffarinomartinez@gmail.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 CGU Derecho. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        document.querySelectorAll('.faq-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' || answer.style.display === '' ? 'block' : 'none';
+            });
+        });
+        window.onload = function() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
